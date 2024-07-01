@@ -1,20 +1,26 @@
 #include "MyStack.h"
+#include <string>
+using std::string;
 
 int main()
 {
-    MyStack::Stack<int> a;
+    MyStack::Stack<string> a;
 
-    a.push(7);
-    a.push(17);
-    a.push(2);
-    a.push(5);
+    a.push("abc");
+    a.push("fx");
+    a.push("glc");
+    a.push("hi");
+    a.push("gogo");
     a.show();
     cout << "--------------------\n";
-    cout << a.top();
-    cout << "\n--------------------\n";
+    a.pop();
+    a.push("the end");
+    a.show();
+    cout << "--------------------\n";
+    int count = 0;
     while (!a.isEmpty()) {
-        cout << a.top() << " was deleted\n";
+        if (a.top().size() == 2) { count++; }
         a.pop();
-        a.show();
     }
+    cout << "Total count of elements with 2 symbols: " << count << endl;
 }
